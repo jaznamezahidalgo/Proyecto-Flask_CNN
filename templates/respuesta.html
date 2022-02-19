@@ -1,0 +1,24 @@
+{%  extends 'base.html' %}
+
+{% block title %}
+	{{ super() }}
+	Respuesta al reconocimiento de la imagen 
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<h2>Imagen : {{ file }} </h2>
+		{% if file %}
+	  		<img src="{{ url_for('static', filename=file) }}" style="width: 200px">
+		{% endif %}
+		{% if answer %}
+			<h3>{{ answer }}</h3>
+		{% endif %}
+		<a href="{{ url_for('index')}}">Ir a inicio</a>
+		<!--{% for file in files %}
+      		<img src="{{ url_for('static', filename=file) }}" style="width: 200px">
+    	{% endfor %}
+		-->		
+	</div>
+
+{% endblock %}

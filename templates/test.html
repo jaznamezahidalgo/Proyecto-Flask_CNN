@@ -1,0 +1,31 @@
+{%  extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block title %}
+	{{ super() }}
+	Bienvenido
+{% endblock %}
+
+{% block content %}
+	<h1>Deep learning - Red Neuronal convolucional</h1>
+	{% if user_ip %}
+		<h4> Bienvenido al reconocimiento de imagen </h4>
+		<ul>
+			<li>Funcionamiento de una red neuronal convolucional que fue entrenada para reconocer imágenes de hormigas y abejas</li>
+			<li>Intenta probar con una imagen y veamos que dice cómo reconoce la imagen :-)</li>
+		</ul>
+		<div class="container">
+				<!--
+				<form action= {{ url_for('test')}} method="POST" enctype="multipart/form-data">
+					{{ upload_form.image }}
+					{{ upload_form.submit }}
+				</form>
+				-->
+				 <div class="form-row align-items-center">
+    				{{ wtf.quick_form(upload_form)}}	
+				</div>
+		</div>	
+	{% else %}
+		<h3>Debe iniciar sesión</h3>
+		<a href="{{ url_for('index')}}">Ir a inicio</a>
+	{% endif %}
+{% endblock %}
